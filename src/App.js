@@ -1,10 +1,10 @@
 import Input from './components/Input'
-import MaxTemperatureBar from './components/MaxTemperatureBar'
+import TemperatureBar from './components/TemperatureBar'
 function App() {
   return (
     <section className="weather">
       <Input />
-      <MaxTemperatureBar />
+      <TemperatureBar />
     </section>
   )
 }

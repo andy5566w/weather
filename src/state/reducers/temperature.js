@@ -18,7 +18,7 @@ const TemperatureReducer = (state = initial, action) => {
     case actionTypes.TEMPERATURE_IS_NOT_FOUND:
       return {
         ...state,
-        temperatures: [],
+        temperatures: action.payload,
         isSuccess: false,
         isLoading: false,
       }

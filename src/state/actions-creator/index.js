@@ -5,7 +5,13 @@ export const queryCity = (query) => async (dispatch) => {
   const { data } = await api.get('/api/location/search', { params: { query } })
   if (data && data.length)
     dispatch({ type: actionTypes.ADD_CITY_DETAIL, payload: data })
-  else dispatch({ type: actionTypes.CITY_IS_EMPTY })
+  else {
+    dispatch({ type: actionTypes.CITY_IS_EMPTY })
+    dispatch({
+      type: actionTypes.TEMPERATURE_IS_NOT_FOUND,
+      payload: [],
+    })
+  }
 }
 
 export const queryTemperatureByCity = (woeid) => async (dispatch) => {
@@ -20,5 +26,6 @@ export const queryTemperatureByCity = (woeid) => async (dispatch) => {
   else
     dispatch({
       type: actionTypes.TEMPERATURE_IS_NOT_FOUND,
+      payload: [],
     })
 }

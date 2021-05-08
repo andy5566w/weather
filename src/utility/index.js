@@ -1,4 +1,4 @@
-class Canvas {
+class BarChart {
   constructor({ canvasDOM, tempArr, cityDetail }) {
     this.canvas = canvasDOM
     this.ctx = this.canvas.getContext('2d')
@@ -151,4 +151,4 @@ class Canvas {
   }
 }
 
-export default Canvas
+export default BarChart

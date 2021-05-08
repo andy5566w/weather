@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 import { useRef, useEffect } from 'react'
-import BarChart from '../utility'
+import BarChart from '../utility/BarChart'
 
 const TemperatureBar = () => {
   const canvas = useRef()

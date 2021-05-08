@@ -3,7 +3,6 @@ import actionTypes from '../action-types'
 const initial = {
   temperatures: [],
   isSuccess: false,
-  isLoading: false,
 }
 
 const TemperatureReducer = (state = initial, action) => {
@@ -13,14 +12,12 @@ const TemperatureReducer = (state = initial, action) => {
         ...state,
         temperatures: action.payload,
         isSuccess: true,
-        isLoading: false,
       }
     case actionTypes.TEMPERATURE_IS_NOT_FOUND:
       return {
         ...state,
         temperatures: action.payload,
         isSuccess: false,
-        isLoading: false,
       }
     default:
       return state

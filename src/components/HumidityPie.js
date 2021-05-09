@@ -19,7 +19,11 @@ const HumidityPie = () => {
   ]
 
   useEffect(() => {
-    new PieChart({ canvas: canvas.current, humilities })
+    new PieChart({
+      canvas: canvas.current,
+      applicable_date: '2021-05-11',
+      humility: 85,
+    })
   }, [humilities])
 
   return (

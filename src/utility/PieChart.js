@@ -1,8 +1,8 @@
 class PieChart {
-  constructor({ canvas, humility, applicable_date }) {
+  constructor({ canvas, humidity, applicable_date }) {
     this.canvas = canvas
     this.ctx = this.canvas.getContext('2d')
-    this.humility = humility
+    this.humidity = humidity
     this.apllicationData = applicable_date
     this.configure()
 
@@ -30,12 +30,12 @@ class PieChart {
     this.ctx.font = '14px Arial'
     this.ctx.fillStyle = this.color.bgColor
     this.ctx.fillText(`日期：${this.apllicationData}`, 10, 20)
-    this.ctx.fillText(`濕度：${this.humility} %`, 10, 40)
+    this.ctx.fillText(`濕度：${this.humidity} %`, 10, 40)
 
     this.ctx.translate(this.canvasWidth / 2, this.canvasHeight / 2)
     this.ctx.fillStyle = this.color.textColor
     this.ctx.font = '36px Arial'
-    this.ctx.fillText(`${this.humility} %`, -30, 30)
+    this.ctx.fillText(`${this.humidity} %`, -30, 30)
     this.ctx.restore()
   }
 
@@ -90,7 +90,7 @@ class PieChart {
       bgCircle: '#34465d',
       textColor: '#ffffff',
     }
-    this.humilityPercentage = this.humility * (360 / 100)
+    this.humilityPercentage = this.humidity * (360 / 100)
   }
 }
 

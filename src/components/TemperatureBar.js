@@ -27,10 +27,6 @@ const TemperatureBar = () => {
     })
   }, [city.data, temperatures])
 
-  return (
-    <section className="chart">
-      <canvas ref={canvas} />
-    </section>
-  )
+  return <canvas ref={canvas} />
 }
 export default TemperatureBar

@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { queryCity, queryTemperatureByCity } from '../state/actions-creator'
 import { useDispatch, useSelector } from 'react-redux'
+import actionTypes from '../state/action-types'
 
-const Input = () => {
+const Input = ({ query, setQuery }) => {
   const dispatch = useDispatch()
-  const [query, setQuery] = useState('london')
   const city = useSelector(({ city }) => city)
   useEffect(() => {
     let timer
@@ -19,7 +19,6 @@ const Input = () => {
   }, [dispatch, query])
 
   useEffect(() => {
-    // TODO 不知道會不會有race condition
     async function fetchTemperature() {
       const { data } = city
       if (data && data.woeid) {
@@ -29,14 +28,17 @@ const Input = () => {
     fetchTemperature()
   }, [dispatch, city])
 
+  const handleChange = (e) => {
+    setQuery(e.target.value)
+    dispatch({ type: actionTypes.USER_IS_TYPING })
+  }
   return (
-    <>
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-    </>
+    <input
+      type="text"
+      value={query}
+      className="weather__query"
+      onChange={handleChange}
+    />
   )
 }
 

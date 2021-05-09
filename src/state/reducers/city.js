@@ -14,6 +14,8 @@ const CityReducer = (state = initial, action) => {
       }
     case actionTypes.CITY_IS_EMPTY:
       return { ...state, data: {}, isLoading: false, isSuccess: false }
+    case actionTypes.USER_IS_TYPING:
+      return { ...state, data: {}, isLoading: true, isSuccess: false }
     default:
       return state
   }
